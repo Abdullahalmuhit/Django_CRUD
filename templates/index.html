@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block title %}
+crud
+{% endblock %}
+{% block content %}
+<p>Book Lists </p><hr>
+<table>
+    <thead>
+    <tr>
+        <th>Book_Name </th>
+        <th>Price   </th>
+        <th>Author  </th>
+        <th>Action  </th>
+    </tr>
+    </thead>
+{% for book in books %}
+<tr>
+    <td>{{ book.title }}</td>
+    <td>{{ book.price }}</td>
+    <td>{{ book.author }}</td>
+    <td ><a class="button2" href="/edit/{{ book.id }}">Edit</a>
+        <a href="/delete/{{ book.id }}">Delete</a>
+
+    </td>
+</tr>
+{% endfor %}
+</table>
+<button type="submit" class="button2">Add Iteam</button>
+{% endblock %}
